@@ -60,7 +60,7 @@ export default function Testimonies() {
               <h3 className="author">{name}</h3>
               <h4 className="job">{job}</h4>
             </div>
-            <div className="yes">
+            <div>
               <button className="prev-btn" onClick={prevTestimony}>
                 <FaChevronLeft />
               </button>
