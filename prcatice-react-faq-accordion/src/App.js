@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import SingleQuestion from "./Questions";
+import questions from "./data";
+import image from "./online-woman.svg";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <div className="container">
+        <section>
+          <h1>FAQ</h1>
+          <img src={image} alt="woman online" />
+        </section>
+
+        <section className="info">
+          {questions.map((faq) => {
+            return <SingleQuestion key={faq.id} {...faq} />;
+          })}
+        </section>
+      </div>
+    </main>
   );
 }
 
