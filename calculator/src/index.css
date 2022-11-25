@@ -1,0 +1,191 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+  outline: none;
+  border: none;
+}
+.main-theme {
+  --bg-one: hsl(222, 26%, 31%);
+  --screen-one: hsl(224, 36%, 15%);
+  --input-color: #fff;
+  --btns-bg-one: hsl(223, 31%, 20%);
+  --btn-one: hsl(30, 25%, 89%);
+  --equal-one: hsl(6, 63%, 50%);
+  --del-and-reset: hsl(225, 21%, 49%);
+  --color-one: hsl(221, 14%, 31%);
+  --header-color: #fff;
+  --shadow: hsl(28, 16%, 65%);
+  --shadow2: hsl(222, 26%, 31%);
+  --shadow3: hsl(6, 70%, 34%);
+  /* --shadow: hsl(28, 16%, 65%); */
+}
+.light-theme {
+  --bg-one: hsl(0, 0%, 90%);
+  --screen-one: hsl(0, 0%, 93%);
+  --input-color: hsl(60, 10%, 19%);
+  --btns-bg-one: hsl(0, 5%, 81%);
+  --btn-one: hsl(45, 7%, 89%);
+  --equal-one: hsl(25, 98%, 40%);
+  --del-and-reset: hsl(185, 42%, 37%);
+  --color-one: hsl(60, 10%, 19%);
+  --equal-color: #fff;
+  --header-color: hsl(60, 10%, 19%);
+  --shadow: hsl(28, 16%, 65%);
+  --shadow2: hsl(185, 58%, 25%);
+  --shadow3: hsl(25, 99%, 27%);
+}
+.purple-theme {
+  --bg-one: hsl(268, 75%, 9%);
+  --screen-one: hsl(268, 71%, 12%);
+  --input-color: hsl(52, 100%, 62%);
+  --btns-bg-one: hsl(268, 71%, 12%);
+  --btn-one: hsl(281, 89%, 26%);
+  --equal-one: hsl(176, 100%, 44%);
+  --del-and-reset: hsl(268, 47%, 21%);
+  --color-one: hsl(52, 100%, 62%);
+  --equal-color: hsl(198, 20%, 13%);
+  --header-color: hsl(52, 100%, 62%);
+  --shadow: hsl(285, 91%, 52%);
+  --shadow2: hsl(268, 75%, 9%);
+  --shadow3: hsl(177, 92%, 70%);
+}
+body {
+  background: var(--bg-one);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s linear;
+}
+
+main {
+  max-width: 575px;
+  /* width: 100%; */
+  margin: 2rem;
+}
+.output input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  width: 100%;
+  background-color: var(--screen-one);
+  color: var(--input-color);
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-align: end;
+  border: none;
+  margin-bottom: 2rem;
+  padding: 2.5rem 1rem;
+  border-radius: 7px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.btns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+  background-color: var(--btns-bg-one);
+  padding: 1.5rem;
+  border-radius: 7px;
+}
+.btns > button {
+  font-size: 1.7rem;
+  font-weight: 900;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--btn-one);
+  color: var(--color-one);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  box-shadow: -2px -2px 2px var(--shadow), 2px 2px 2px var(--shadow),
+    inset 2px 2px 2px var(--shadow), inset -2px -2px 2px rgba(0, 0, 0, 0.05),
+    inset 0 20px 10px rgba(0, 0, 0, 0.05);
+  opacity: 0.9;
+  transition: 0.2s ease-in-out;
+}
+.btns > button:hover,
+.btns > button:focus {
+  opacity: 1;
+}
+.btns .del {
+  background-color: var(--del-and-reset);
+  color: #fff;
+  box-shadow: -2px -2px 2px var(--shadow2), 2px 2px 2px var(--shadow2),
+    inset 2px 2px 2px var(--shadow2), inset -2px -2px 2px rgba(0, 0, 0, 0.05),
+    inset 0 20px 10px rgba(0, 0, 0, 0.05);
+}
+.btns .reset {
+  grid-column: span 2;
+  background-color: var(--del-and-reset);
+  color: #fff;
+  box-shadow: -2px -2px 2px var(--shadow2), 2px 2px 2px var(--shadow2),
+    inset 2px 2px 2px var(--shadow2), inset -2px -2px 2px rgba(0, 0, 0, 0.05),
+    inset 0 20px 10px rgba(0, 0, 0, 0.05);
+}
+
+.btns .equals {
+  grid-column: span 2;
+  background-color: var(--equal-one);
+  color: var(--equal-color);
+  box-shadow: -2px -2px 2px var(--shadow3), 2px 2px 2px var(--shadow3),
+    inset 2px 2px 2px var(--shadow3), inset -2px -2px 2px rgba(0, 0, 0, 0.05),
+    inset 0 20px 10px rgba(0, 0, 0, 0.05);
+}
+/* ////////////////////////////////////////
+////////////////////
+THEME JS STYLE
+/////////////////////////////
+////////////////////////////////
+*/
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  max-width: 575px;
+  margin: 2rem;
+}
+h1 {
+  color: var(--header-color);
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.35rem;
+  color: var(--header-color);
+}
+.theme-btns {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.theme-btns > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.5rem;
+  background-color: var(--btns-bg-one);
+  box-shadow: -2px -2px 1px var(--shadow), 2px 2px 2px var(--shadow);
+}
+.main {
+  color: hsl(28, 16%, 65%);
+}
+.light {
+  color: #fff;
+}
+.purple {
+  color: hsl(281, 89%, 26%);
+}
